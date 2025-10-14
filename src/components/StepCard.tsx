@@ -8,12 +8,13 @@ interface StepCardProps {
   stepNumber: number;
   title: string;
   description: string;
+  details?: string[];
   code?: string;
   completed: boolean;
   onComplete: () => void;
 }
 
-export const StepCard = ({ stepNumber, title, description, code, completed, onComplete }: StepCardProps) => {
+export const StepCard = ({ stepNumber, title, description, details, code, completed, onComplete }: StepCardProps) => {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
@@ -45,6 +46,20 @@ export const StepCard = ({ stepNumber, title, description, code, completed, onCo
       </CardHeader>
       <CardContent className="space-y-4">
         <CardDescription className="text-base leading-relaxed">{description}</CardDescription>
+        
+        {details && details.length > 0 && (
+          <div className="bg-secondary/50 rounded-lg p-4 space-y-3">
+            <p className="font-semibold text-sm text-foreground mb-2">📝 詳しい手順：</p>
+            <ul className="space-y-2">
+              {details.map((detail, index) => (
+                <li key={index} className="flex gap-3 text-sm text-muted-foreground">
+                  <span className="text-primary font-bold mt-0.5">{index + 1}.</span>
+                  <span className="flex-1 leading-relaxed">{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         
         {code && (
           <div className="relative">

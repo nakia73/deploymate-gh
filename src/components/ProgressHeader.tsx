@@ -12,10 +12,10 @@ export const ProgressHeader = ({ currentStep, totalSteps }: ProgressHeaderProps)
     <div className="space-y-4">
       <div className="text-center space-y-2">
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-pulse">
-          GitHub Pages デプロイガイド
+          アプリ公開ガイド 🚀
         </h1>
         <p className="text-muted-foreground text-lg">
-          アプリを世界に公開しましょう
+          Lovableで作ったアプリを世界に公開する方法を、初心者向けにわかりやすく解説します
         </p>
       </div>
       
